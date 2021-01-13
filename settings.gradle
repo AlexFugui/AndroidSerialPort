@@ -1,0 +1,3 @@
+include ':SerialPortHelper'
+include ':app'
+rootProject.name = "AndroidSerialPort"
