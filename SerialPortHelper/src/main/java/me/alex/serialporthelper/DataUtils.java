@@ -102,8 +102,7 @@ public class DataUtils {
     private static int toDigit(char hexChar) {
         int digit = Character.digit(hexChar, 16);
         if (digit == -1) {
-            throw new IllegalArgumentException(
-                    "Invalid Hexadecimal Character: " + hexChar);
+            throw new IllegalArgumentException("Invalid Hexadecimal Character: " + hexChar);
         }
         return digit;
     }
@@ -133,8 +132,7 @@ public class DataUtils {
      */
     public static byte[] decodeHexString(String hexString) {
         if (hexString.length() % 2 == 1) {
-            throw new IllegalArgumentException(
-                    "Invalid hexadecimal String supplied.");
+            throw new IllegalArgumentException("Invalid hexadecimal String supplied.");
         }
         byte[] bytes = new byte[hexString.length() / 2];
         for (int i = 0; i < hexString.length(); i += 2) {

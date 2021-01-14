@@ -10,6 +10,7 @@ import java.math.BigInteger;
 import me.alex.serialporthelper.DataUtils;
 import me.alex.serialporthelper.PortData;
 import me.alex.serialporthelper.SerialPortConfig;
+import me.alex.serialporthelper.SerialPortFinder;
 import me.alex.serialporthelper.SerialPortHelper;
 import me.alex.serialporthelper.SphResultCallback;
 
@@ -25,6 +26,42 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SerialPortFinder finder = new SerialPortFinder();
+
+        /*log示例
+        Device: ttysWK3 (ttySWK)
+        Device: ttysWK2 (ttySWK)
+        Device: ttysWK1 (ttySWK)
+        Device: ttysWK0 (ttySWK)
+        Device: ttyS0 (serial)
+        Device: ttyS5 (serial)
+        Device: ttyS4 (serial)
+        Device: ttyS3 (serial)
+        Device: ttyS2 (serial)
+        Device: ttyS1 (serial)
+        Device: ttyFIQ0 (fiq-debugger)
+         */
+        for (String allDevice : finder.getAllDevices()) {
+            Log.i("Device", allDevice);
+        }
+
+        /* log示例
+        devicePath: /dev/ttysWK3
+        devicePath: /dev/ttysWK2
+        devicePath: /dev/ttysWK1
+        devicePath: /dev/ttysWK0
+        devicePath: /dev/ttyS0
+        devicePath: /dev/ttyS5
+        devicePath: /dev/ttyS4
+        devicePath: /dev/ttyS3
+        devicePath: /dev/ttyS2
+        devicePath: /dev/ttyS1
+        devicePath: /dev/ttyFIQ0
+         */
+        for (String devicePath : finder.getAllDevicesPath()) {
+            Log.i("devicePath", devicePath);
+
+        }
         serialPortHelper = new SerialPortHelper(32);//接收的数据长度
         config = new SerialPortConfig();
         // 是否使用原始模式(Raw Mode)方式来通讯
@@ -52,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onReceiveData(PortData data) {
-//                String str = DataUtils.encodeHexString(data);
                 Log.i(TAG, data.getCommandsHex());
             }
 

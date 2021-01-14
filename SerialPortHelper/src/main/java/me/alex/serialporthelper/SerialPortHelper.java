@@ -114,11 +114,10 @@ public class SerialPortHelper {
      */
     public boolean openDevice() {
         if (serialPortConfig == null) {
-            throw new IllegalArgumentException("'SerialPortConfig' must can not be null!!! ");
+            throw new IllegalArgumentException("SerialPortConfig 不能为空");
         }
         if (serialPortConfig.path == null) {
-            throw new IllegalArgumentException("You not have setting the device path, " +
-                    "you must 'new SerialPortHelper(String path)' or call 'openDevice(String path)' ");
+            throw new IllegalArgumentException("请设置SerialPortConfig串口地址");
         }
         if (serialPort == null) {
             serialPort = new SerialPortJNI();

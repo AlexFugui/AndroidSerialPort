@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
 
 android {
     compileSdkVersion 30
@@ -30,3 +33,4 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 }
+apply from: 'jcenter.gradle'
