@@ -1,11 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.AlexFugui'
+
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion 19
@@ -33,4 +36,3 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 }
-apply from: 'jcenter.gradle'
