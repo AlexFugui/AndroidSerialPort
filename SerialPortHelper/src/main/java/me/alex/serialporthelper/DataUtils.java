@@ -65,6 +65,18 @@ public class DataUtils {
     }
 
     /**
+     * 字节数组转十进制
+     *
+     * @param bytes
+     * @return
+     */
+    public static int bytesToDec2(byte... bytes) {
+        String s = encodeHexString(bytes);
+        return (int) hexToDec(s);
+    }
+
+
+    /**
      * Hex字符串转int
      *
      * @param inHex
@@ -125,6 +137,23 @@ public class DataUtils {
     }
 
     /**
+     * 字节数组转十六进制
+     *
+     * @param byteArray
+     * @return
+     */
+    public static String encodeHexString2(byte... byteArray) {
+        if (byteArray == null) {
+            return "";
+        }
+        StringBuffer hexStringBuffer = new StringBuffer();
+        for (int i = 0; i < byteArray.length; i++) {
+            hexStringBuffer.append(byteToHex(byteArray[i]));
+        }
+        return hexStringBuffer.toString().toUpperCase();
+    }
+
+    /**
      * 十六进制转字节数组
      *
      * @param hexString
@@ -164,4 +193,19 @@ public class DataUtils {
     public static long hexToDec(String hex) {
         return Long.parseLong(hex, 16);
     }
+
+    /**
+     * bytes 转 字符串
+     *
+     * @param bytes
+     * @return
+     */
+    public static String bytes2String(byte[] bytes) {
+        StringBuilder builder = new StringBuilder();
+        for (byte aByte : bytes) {
+            builder.append(String.format("%02X", aByte));
+        }
+        return builder.toString();
+    }
 }
+
