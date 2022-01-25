@@ -1,6 +1,6 @@
 # AndroidSerialPort
 
-##使用方法先下载源码查看 懒得写文档
+## 使用方法先下载源码查看 懒得写文档
 
 JCenter依赖:
 
