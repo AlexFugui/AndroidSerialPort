@@ -6,6 +6,7 @@
 
 
 Jitpack依赖:
+
 maven { url 'https://jitpack.io' }
 
 `implementation 'com.github.AlexFugui:AndroidSerialPort:1.0.1'`
